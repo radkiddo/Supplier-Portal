@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="Invoice Portal">
+    <meta name="author" content="Eduardo Freitas">
+    <meta name="keywords" content="Invoice Reader, Supplier Portal, eFLOW, Top Image Systems, Invoices, Supplier, PO, Purchase Orders">
+
+    <link href="css/modern-red.css" rel="stylesheet">
+    <link href="css/modern-responsive.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet" type="text/css">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Supplier Portal</title>
+</head>
+
+<body class="modern-ui" onload="prettyPrint()">
+
+<div class="page">
+<div id="MenuMainDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small</small>
+        </span></a>
+
+        <div class="divider"></div>
+
+        	<ul id="MenuMain" class="menu">
+        		<li><a href="#/login">Login</a></li>
+        		<li><a href="#/signup">Sign Up</a></li>
+        		<li><a href="#/about">About</a></li>
+        	</ul>
+        
+    </div>
+</div>
+
+<div id="MenuPortalDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small</small>
+        </span></a>
+
+        <div class="divider"></div>
+        
+        	<ul id="MenuPortal" class="menu">
+        		<li><a href="#/logout">Logout</a></li>
+        		<li><a href="#/about">About</a></li>
+        	</ul>
+        
+    </div>
+</div>
+
+<div id="MenuLogoutDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small</small>
+        </span></a>
+
+        <div class="divider"></div>
+        
+        	<ul id="MenuLogout" class="menu">
+        		<li><a href="#/about">About</a></li>
+        	</ul>
+        
+    </div>
+</div>
+</div>
+
+<div class="page" id="page-index" style="display: none">
+	<div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                
+                <div class="row">
+                    <div class="span12 padding10 fg-color-darken text-center">
+                        Welcome to the Supplier Portal for eFLOW Invoices
+                    </div>
+                </div>
+                
+                <br />
+                
+                <div class="row">
+                    <div class="span8">
+                        <div class="hero-unit">
+                            <div id="carousel1" class="carousel" data-role="carousel" data-param-duration="300">
+                                <div class="slides">
+                                
+                                	<div class="slide" id="slide1">
+                                        <h2>Supplier Invoice Submitting</h2>
+										<br />
+                                        <p class="bg-color-red padding20 fg-color-white">
+                                        The Supplier Portal allows your suppliers to submit their Invoices directly to your eFLOW system quick and easy.</p>
+                                        <br />
+                                        <span>
+                                        	<a href="#/signup">Get your suppliers to Sign Up</a>
+                                        </span>	
+                                    </div>
+                                    
+                                    <div class="slide" id="slide2">
+                                    	<h2>Invoices processed by eFLOW</h2>
+										<br />
+                                        <p class="bg-color-red padding20 fg-color-white">
+                                        The invoices submitted through the Supplier Portal are processed by eFLOW, which is the most flexible Invoice capture solution in the market.</p>
+                                        <br />
+                                        <span>
+                                        	<a href="#/how">Learn more on how it works</a>
+                                        </span>
+                                    </div>
+
+								</div>
+								
+								<span class="control left"><i class="icon-arrow-left-3"></i></span>
+                            	<span class="control right"><i class="icon-arrow-right-3"></i></span>
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="span4">
+                        <div class="span4 padding30 text-center place-left bg-color-blueLight" id="sponsorBlock">
+                            <br />
+                            <br />
+                            <h2 class="">Already signed up?</h2>
+                            <p class="">If so, then <a class="" href="#/login">Login</a></p>
+                            <br />
+                            <a href="#/signup"><h1><i class="icon-arrow-right-3 fg-color-red"></i></h1></a>
+                        </div>
+                    </div>
+
+					
+				</div>				
+                
+			</div>
+		</div>
+	</div>				
+</div>
+
+<div id="portaldiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Portal<small>...</small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	</div>
+            </div>
+       	</div>
+	</div>	     	
+</div>
+
+<div id="logoutdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Logout<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Are you sure you want to logout?
+                    	</p>
+                    	
+                    	<br />
+                    	
+                    	<button id="logoutButtonEnabled" class="standart default bg-color-blue">Yes</button>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+<div id="logindiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Login<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+	<div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<form action="">
+
+            				<h5>User name</h5>
+							<p>
+                				<div class="input-control text span6">
+        							<input id="loginUserName" type="text" />
+    							</div>
+                			</p>
+
+                			<h5>Password</h5>
+							<p>
+                				<div class="input-control password span6">
+        							<input id="loginPassword" type="password" />
+    							</div>
+                			</p>
+                			
+                			<br />
+                			
+                			<p>
+                				<label class="input-control checkbox">
+        							<input id="LoginRememberMe" type="checkbox">
+        							<span class="helper">Remember me</span>
+    							</label>
+    							
+    							<label class="input-control checkbox">
+        							<input id="LoginKeepMeSignedUpMe" type="checkbox">
+        							<span class="helper">Keep me signed in</span>
+    							</label>
+                			</p>
+                			
+                			<br />
+                			
+                			<button disabled id="loginButtonEnabled" class="standart bg-color-gray">Login</button>
+                			
+                			<div id="loginUserNotFoundDiv" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-orange">
+                                    	<b class="sticker sticker-left sticker-color-orange"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">User name / password combination not found. Are you sure?</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                            <div id="loginUserException" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-red">
+                                    	<b class="sticker sticker-left sticker-color-red"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Oops. An internal server exception has occurred. Please try again in a bit or contact support.</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                		</form>	
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            
+            	</div>
+            	
+            	<br />
+            	
+            	<div class="row">
+            		
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<p>
+                        	Don't have an account? Then <a href="#/signup">Sign Up</a>
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+
+            	</div>
+            </div>
+
+		</div>
+	</div>			
+</div>
+
+<div id="aboutdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>About<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+	<div class="page-region">
+    	<div class="page-region-content">
+        	<div class="span10">
+            	<h2>What...</h2>
+				<p>
+                	The Supplier Portal is where your customers can submit their <code>Invoices</code> to your company, so they can get processed by <code>eFLOW</code>.
+                </p>
+            </div>
+            
+            <br />
+            
+            <div class="span10">
+            	<h2>Who...</h2>
+				<p>
+                	Developed by <a class="fg-color-blue" href="http://about.me/efreitas">Eduardo Freitas</a>. Works with <code>eFLOW Invoices</code>.
+                </p>
+                <p>
+                	The company behind the Supplier Portal is <a class="fg-color-blue" href="http://www.topimagesystems.co.uk">Top Image Systems UK</a>.
+                </p>
+            </div>
+            
+            <br />
+            
+            <div class="span10">
+            	<h2>Technology...</h2>
+				<p>
+                	Developed with open source and proprietary technology:
+                </p>
+                <br />
+                <p>
+                	<a class="fg-color-blue" href="http://www.nodejs.org"> - Node</a> - Platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://expressjs.com/"> - Express</a> - Sinatra inspired web development framework for node.js.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://www.mongodb.org/"> - MongoDB</a> - Scalable, high-performance, open source NoSQL database written in C++.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://mongoosejs.com/"> - Mongoose</a> - Elegant mongodb object modeling for node.js.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://aws.amazon.com/"> - Amazon Web Services</a> - (AWS) delivers a set of services that together form a reliable, scalable, and inexpensive computing platform “in the cloud”.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://jquery.com/"> - jQuery</a> - Fast and concise JavaScript Library that simplifies HTML development.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://knockoutjs.com/"> - Knockout.js</a> - Simplifies dynamic JavaScript UIs by applying the Model-View-View Model (MVVM) pattern.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://www.microsoft.com/net"> - .NET Framework</a> - Integral part of many applications running on Windows and provides common functionality for those applications to run. 
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://www.topimagesystems.com/solutions/overview/eflow-overview"> - eFLOW</a> - The most flexible and advanced ECM / Automated Invoice processing platform in the market. 
+                </p>
+            </div>
+		</div>
+	</div>			
+</div>
+
+<div class="page">
+	<div class="nav-bar">
+    	<div class="nav-bar-inner padding10">
+        	<span class="element">
+            	&copy;2013 - Supplier Portal - eFLOW Invoices
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+
+<script src="js/modern/slider.min.js"></script>
+<script src="js/modern/carousel.min.js"></script>
+
+<script src="js/director.min.js"></script>
+<script src="js/jquery.cookie.min.js"></script>
+<script src="js/supplierportal.js"></script>
+
+</body>

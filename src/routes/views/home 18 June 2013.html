@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Invoice Portal" />
+    <meta name="author" content="Eduardo Freitas" />
+    <meta name="keywords" content="Invoice Reader, Supplier Portal, eFLOW, Top Image Systems, Invoices, Supplier, PO, Purchase Orders" />
+
+    <link href="css/modern-red.css" rel="stylesheet" />
+    <link href="css/modern-responsive.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" type="text/css" />
+    <link href="css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="css/dropzone.css" rel="stylesheet" type="text/css" />
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" />
+    <link type='text/css' href='css/osx.css' rel='stylesheet' media='screen' />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Supplier Portal</title>
+</head>
+
+<body class="modern-ui" onload="prettyPrint()">
+
+<div class="ptop">
+<div id="MenuMainDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small></small>
+        </span></a>
+
+		<ul id="MenuMain" class="menu">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li><a href="#/">Home</a></li>
+    		<li><a href="#/login">Login</a></li>        		
+    		<li><a href="#/usersignup">Supplier Sign Up</a></li>
+    		<li><a href="#/adminsignup">Admin Sign Up</a></li>
+        	<li><a href="#/about">About</a></li>
+        	<li></li>
+        	<li><a href="http://www.doksend.com/eFlowSdks/SupplierPortal">Documentation</a></li>
+    	</ul>
+        
+    </div>
+</div>
+
+<div id="MenuPortalDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small</small>
+        </span></a>
+
+        <ul id="MenuPortal" class="menu">
+        	<li></li>
+			<li></li>
+			<li></li>
+			<li><a href="#/">Home</a></li>
+        	<li><a href="#/logout">Logout</a></li>
+        	<li><a href="#/usersettings">Change Password</a></li>
+        </ul>
+        
+    </div>
+</div>
+
+<div id="MenuLogoutDiv" class="nav-bar" style="display: none">
+	<div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="#/"><span class="element brand">
+            Supplier Portal <small</small>
+        </span></a>
+
+       	<ul id="MenuLogout" class="menu">
+       		<li></li>
+			<li></li>
+			<li></li>
+			<li><a href="#/">Home</a></li>
+        	<li><a href="#/usersettings">Change Password</a></li>
+        </ul>
+        
+    </div>
+</div>
+</div>
+
+<div class="page" id="page-index" style="display: none">
+	<div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                
+                <div class="row">
+                    <div class="span12 padding10 fg-color-darken text-center">
+                        Welcome to the Supplier Portal for eFLOW
+                    </div>
+                </div>
+                
+                <br />
+                
+                <div class="row">
+                    <div class="span8">
+                        <div class="hero-unit">
+                            <div id="carousel1" class="carousel">
+                                <div class="slides">
+                                
+                                	<div class="slide" id="slide1" style="display: none">
+                                        <h2>Easy Batch Searching</h2>
+										<br />
+                                        <p class="bg-color-red padding20 fg-color-white">
+                                        The Supplier Portal allows your suppliers to view and search their eFLOW batches using the web.</p>
+                                        <br />
+                                        <span>
+                                        	<a href="#/usersignup">Get your suppliers to Sign Up</a>
+                                        </span>	
+                                    </div>
+                                    
+                                    <div class="slide" id="slide2" style="display: none">
+                                    	<h2>Processed by eFLOW</h2>
+										<br />
+                                        <p class="bg-color-red padding20 fg-color-white">
+                                        The batches seen through the Supplier Portal are processed by eFLOW, which is the most flexible Invoice capture solution in the market.</p>
+                                        <br />
+                                        <span>
+                                        	<a href="http://www.doksend.com/eFlowSdks/SupplierPortal">Learn more on how it works</a>
+                                        </span>
+                                    </div>
+
+								</div>
+								
+								<span id="backSlide" class="control left"><i class="icon-arrow-left-3"></i></span>
+                            	<span id="nextSlide" class="control right"><i class="icon-arrow-right-3"></i></span>
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="span4">
+                        <div class="span4 padding30 text-center place-left bg-color-blueLight" id="sponsorBlock">
+                            <br />
+                            <br />
+                            <h2 class="">Already signed up?</h2>
+                            <p class="">If so, then <a class="" href="#/login">Login</a></p>
+                            <br />
+                            <a href="#/usersignup"><h1><i class="icon-arrow-right-3 fg-color-red"></i></h1></a>
+                        </div>
+                    </div>
+
+				</div>				
+                
+			</div>
+		</div>
+	</div>				
+</div>
+
+<div id="osx-modal-content" style="display: none">
+	<div id="osx-modal-title">Set Supplier & PO</div>
+	<div class="close"><a href="#" class="simplemodal-close">x</a></div>
+	<div id="osx-modal-data">
+		<div class="page-region">
+        	<div class="page-region-content">
+        		<br />
+				<div id="uploadSuppliersDiv">
+					<p>Select Supplier:</p>
+					<div class="input-control select">
+        				<select id="uploadSuppliers">
+        					<option>Loading...</option>
+        				</select>
+   					</div>
+   				</div>
+   				<br />
+				<div id="uploadPOsDiv">
+   					<p>Select PO:</p>
+					<div class="input-control select">
+        				<select id="uploadPOs">
+        					<option>Loading...</option>
+        				</select>
+   					</div>
+   				</div>
+   				<br />
+   				<div>
+   					<div id="uploadSubmitBtnShow">
+						<p><button id="uploadSubmitBtnEnabled" class="standart bg-color-blue fg-color-white">Submit</button><span>(ESC to close)</span></p>
+					</div>
+				</div>
+        	</div>
+        </div>
+	</div>
+</div>
+
+<div id="viewerdiv" style="display: none">
+	<div class="page-region-content" style="padding-left:20px;">
+		<div class="nav-bar bg-color-white fg-color-blue">
+			<div class="nav-bar-inner">
+				<ul class="menu">
+					<li><a id="backToList" href="">Back to List</a></li>
+					<li><a id="toggleFields" href=""></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<br />
+	
+	<div id="snappedDiv" class="page snapped" style="display: none">
+		<div id="viewerFieldLayout">
+        	<div class="page secondary">
+        		<div class="page-region">
+    				<div class="page-region-content" style="padding-right:20%;">
+    					<div id="fieldsListViewer1" style="display: none">
+                		</div>
+                		<div id="fieldsListViewer2" style="display: none">
+                		</div>
+    				</div>
+    			</div>
+        	</div>
+		</div>
+    </div>
+    
+    <div id="fillDiv" class="page fill">
+    	<div class="page-region">
+    	
+    		<div class="page-region-content">
+    			<div class="grid">
+            		<div class="row">
+            			<div style="padding-left:25px;">
+            				<h2>Batch <small id="viewerCollection"></small></h2>
+            				<iframe id="docViewer" src="" style="width: 100%; height:850px; padding-left:0px; padding-right:0px;"></iframe>
+            			</div>
+            		</div>
+            	</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+
+<div id="portaldiv" class="offset1" style="display: none">
+	<br />
+	
+	<div id="BatchesDoNotExist" class="page" style="display: none">
+		<div class="page-region-content" style="padding-left: 20px;" style="display: none">
+			<div class="page-header" style="border-bottom: 0px #fff dotted;">
+        		<div class="page-header-content">
+        			<br />
+					<br />
+        			<p>Unfortunately, there are no eFLOW applications configured yet for your company's domain.</p>
+    				<p>Please contact your eFLOW sales or account manager to request this.</p>
+        		</div>
+        	</div>
+    	</div>
+    </div>
+	
+	<div id="BatchesExist" style="display: none">
+	
+	<div class="page snapped2">
+		<div id="mainPortalPage" class="page with-sidebar bg-color-white" style="width: 100%;">
+			<div id="PortalSideBar" class="page-sidebar" style="display: none">
+            	<ul>
+            		<li class="sticker sticker-color-blue dropdown active">
+                    	<a><i class="icon-clipboard"></i> Actions</a>
+                    	<ul id="ActionItems" class="sub-menu light sidebar-dropdown-menu open">
+                        	<li class="bg-color-blueLight"><a id="uploadFilesLink" class="osx" href="">Flip PO</a></li>
+                        	<li class="bg-color-blueLight"><a id="showDropArea" href="">Upload Invoice(s)</a></li>
+                   	 	</ul>
+                	</li>
+                	<li class="sticker sticker-color-blue dropdown active">
+                		<a><i class="icon-list"></i> Apps</a>
+                		<ul id="eFlowAppsList" class="sub-menu light sidebar-dropdown-menu open">
+                		</ul>
+                	</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page fill2">
+        
+		<div class="page-region">
+    		<div class="page-region-content">
+    			<div class="grid">
+            		<div class="row">
+            			<div class="span10">
+            				<div class="page-region-content" style="padding-left: 20px;" style="display: none">
+                        		<div style="border-left: 1px #fff dotted; height: 180px;">
+                        			<h2>Welcome, <small id="portalSmall"></small></h2><br />
+                        			<div id="dropzone" style="display: none">
+										<form enctype="multipart/form-data" action="/k4e79e72Fe9ZWgcCaexsd7azLdXxsdsZAs/fupload" method="POST" class="dropzone" id="demo-upload" name="displayImage">
+										</form>
+										<br />
+									</div>
+                            		<h3 id="batchestag">Current Batches for: </h3>
+                                	<br />
+                                	<div id="colleclist">
+									</div>
+									<br />
+									<p>The information here presented has been retrieved from eFLOW.</p><br />
+                        		</div>
+                        	</div>
+                        </div>
+                        <div class="span1">
+            			</div>
+            		</div>
+            	</div>
+    		</div>
+    	</div>
+	</div>
+	
+	</div>
+</div>
+
+<div id="activationSuccessfulDiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Success<small></small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Hooray! Activation was successful.
+                    	</p>
+                    	
+                    	<br />
+                    	<p>
+                        	Feel free to <a href="#/login">login</a> - cheers.
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            		
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="activationFailedDiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Error<small></small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Activation failed, internal error.
+                    	</p>
+                    	
+                    	<br />
+                    	<p>
+                        	Please retry later or contact support.
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div id="alreadyActivatedDiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Info<small></small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	User not found or it has already been activated.
+                    	</p>
+                    	
+                    	<br />
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+		</div>
+	</div>		            	
+</div>
+
+<div id="recovereddiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Recovered<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+    	
+    		<div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Info has been recovered and emailed to you, thanks.
+                    	</p>
+            		</div>
+    	
+    				<div class="span2">
+            		</div>
+            		
+            	</div>
+            </div>
+    	</div>
+    </div>
+</div>
+
+<div id="recoverdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Recover<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			
+            			<br />
+            			<p>
+                        	Lost your password or your activation email?
+                    	</p>
+                    	
+                    	<br />
+                    	
+                    	<form action="">
+            			
+            				<h5>User name (Email used for signing up)</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="recoverEmail" type="text" />
+        							<h6 class="smallWeek" id="recoverEmailMsg"></h6>
+    							</div>
+                			</p>
+                			
+                			<button disabled id="recoverButtonEnabled" class="standart bg-color-gray">Recover it</button>
+                			
+                			<div id="recoverUserNotFoundDiv" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-orange">
+                                    	<b class="sticker sticker-left sticker-color-orange"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Email address not found. Could not recover any data. Are you sure?</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                            <div id="recoverUserException" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-red">
+                                    	<b class="sticker sticker-left sticker-color-red"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Oops. An internal server exception has occurred. Please try again in a bit or contact support.</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                			
+                		</form>
+                		
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            		
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="logoutdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Logout<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Are you sure you want to logout?
+                    	</p>
+                    	
+                    	<br />
+                    	
+                    	<button id="logoutButtonEnabled" class="standart default bg-color-blue">Yes</button>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+<div id="page404div" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>404<small>...</small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Oops, the page are looking for does not exist.
+                    	</p>
+                    	
+                    	<br />
+                    	
+                    	<p>
+                        	Please click <a href="#/">here</a> - thanks.
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+<div id="signupPendingDiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Pending approval<small></small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Thank you for signing up.
+                    	</p>
+                    	<br />
+            			<p>
+                        	Your sign up request has been sent to the admin for approval.
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            		
+            	</div>
+           	</div>
+		</div>
+    </div>
+</div>
+
+<div id="signupActivationDiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Activation Sent<small></small></h1>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+                        	Thank you for signing up.
+                    	</p>
+                    	<br />
+            			<p>
+                        	An activation email has been sent to your email address.
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            		
+            	</div>
+           	</div>
+		</div>
+	</div>     	
+</div>
+
+<div id="usersettingsfaileddiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>User Settings<small></small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			
+            			<p>
+            				Failed to load user settings.
+            			</p>
+            			
+            			<br />
+            			
+            			<p>
+            				Try again or click <a href="#/portal">here</a>.
+            			</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="usersettingsdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>User Settings<small></small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			
+            			<p>
+            				Feel free to change them (if necessary).
+            			</p>
+            			
+            			<br />
+            		
+            			<form action="">
+            			
+            				<h5>Your first name</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input disabled="" id="settingsfirstName" type="text" />
+    							</div>
+                			</p>
+                			
+                			<h5>Your last name</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input disabled="" id="settingslastName" type="text" />
+    							</div>
+                			</p>
+                			
+                			<h5>New password</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="settingsPassword" type="password" />
+        							<h6 class="smallWeek" id="settingsPwdStrength"></h6>
+    							</div>
+                			</p>
+                			
+                			<h5>Retype new password</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="settingsPasswordRetyped" type="password" />
+        							<h6 class="smallText" id="settingsPwdRetypeStrength"></h6>
+        							<h6 class="smallText" id="settingsPwdNoMatch"></h6>
+    							</div>
+                			</p>
+                			
+                			<br />
+                			
+                			<button disabled id="settingsButtonEnabled" class="standart bg-color-gray">Save</button>
+                			
+                			<div id="settingsUserException" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-red">
+                                    	<b class="sticker sticker-left sticker-color-red"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Oops. An internal server exception has occurred. Please try again in a bit or contact support.</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+            				
+            			</form>
+            			
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            		
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="signupdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1 id="SignUpTitle">Sign Up<small> Please enter the following:</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+    <div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<br />
+            			<p>
+            				This service is by invitation only. If your email is not accepted or you have not been invited yet, please <a href="#/about">contact us</a> to see if you are eligible.
+            			</p>
+            			<br />
+            			
+            			<form action="">
+            			
+            				<h5>Your first name</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="signupfirstName" type="text" />
+    							</div>
+                			</p>
+                			
+                			<h5>Your last name</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="signuplastName" type="text" />
+        							<h6 class="smallWeek" id="signupLastNameValid"></h6>
+    							</div>
+                			</p>
+                			
+                			<h5>Your email (will be used as your user name)</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="signupUserName" type="text" />
+        							<h6 class="smallWeek" id="signupEmailValid"></h6>
+    							</div>
+                			</p>
+                			
+                			<h5>Desired password</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="signupPassword" type="password" />
+        							<h6 class="smallWeek" id="signupPwdStrength"></h6>
+    							</div>
+                			</p>
+                			
+                			<h5>Retype desired password</h5>
+            				<p>
+                				<div class="input-control text span6">
+        							<input id="signupPasswordRetyped" type="password" />
+        							<h6 class="smallText" id="signupPwdRetypeStrength"></h6>
+        							<h6 class="smallText" id="signupPwdNoMatch"></h6>
+    							</div>
+                			</p>
+                			
+                			<br />
+                			
+                			<button disabled id="signupButtonEnabled" class="standart bg-color-gray">Sign Up</button>
+                			
+                			<div id="signupUserExistsDiv" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-orange">
+                                    	<b class="sticker sticker-left sticker-color-orange"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">User name already exists. Are you sure you're using the right email address?</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                            <div id="signupUserException" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-red">
+                                    	<b class="sticker sticker-left sticker-color-red"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Oops. An internal server exception has occurred. Please try again in a bit or contact support.</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                			
+            			</form>
+            			
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            	</div>
+            </div>
+		</div>
+	</div>     		
+</div>
+
+<div id="logindiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>Login<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+	<div class="page-region">
+    	<div class="page-region-content">
+        	
+            <div class="grid">
+            	<div class="row">
+            	
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<form action="">
+
+            				<h5>User name (Email used for signing up)</h5>
+							<p>
+                				<div class="input-control text span6">
+        							<input id="loginUserName" type="text" />
+        							<h6 class="smallWeek" id="loginEmailMsg"></h6>
+    							</div>
+                			</p>
+
+                			<h5>Password</h5>
+							<p>
+                				<div class="input-control password span6">
+        							<input id="loginPassword" type="password" />
+    							</div>
+                			</p>
+                			
+                			<br />
+                			
+                			<p>
+                				<label class="input-control checkbox">
+        							<input id="LoginRememberMe" type="checkbox">
+        							<span class="helper">Remember me</span>
+    							</label>
+                			</p>
+                			
+                			<br />
+                			
+                			<button disabled id="loginButtonEnabled" class="standart bg-color-gray">Login</button>
+                			
+                			<div id="loginUserNotFoundDiv" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-orange">
+                                    	<b class="sticker sticker-left sticker-color-orange"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">User name / password combination not found. Are you sure? Have you activated your account?</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                            <div id="loginUserException" style="display: none">
+                				<ul class="replies">
+                                	<li class="bg-color-red">
+                                    	<b class="sticker sticker-left sticker-color-red"></b>
+                                    	<div class="avatar"><img src="images/myface.jpg" /></div>
+                                    	<div class="reply">
+                                        	<div class="author">Server says:</div>
+                                        	<div class="text">Oops. An internal server exception has occurred. Please try again in a bit or contact support.</div>
+                                    	</div>
+                                	</li>
+                            	</ul>
+                            </div>
+                            
+                		</form>	
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+            
+            	</div>
+            	
+            	<br />
+            	
+            	<div class="row">
+            		
+            		<div class="span2">
+            		</div>
+            		
+            		<div class="span6">
+            			<p>
+                        	Don't have an account? Then <a href="#/usersignup">Sign Up</a>
+                    	</p>
+                        <p>
+                        	Password or activation email lost? <a href="#/recover">Recover it</a>
+                    	</p>
+            		</div>
+            		
+            		<div class="span2">
+            		</div>
+
+            	</div>
+            </div>
+
+		</div>
+	</div>			
+</div>
+
+<div id="aboutdiv" class="page secondary" style="display: none">
+	<div class="page-header">
+        <div class="page-header-content">
+            <h1>About<small>...</small></h1>
+            <a href="javascript:history.back()" class="back-button big page-back"></a>
+        </div>
+    </div>
+    
+	<div class="page-region">
+    	<div class="page-region-content">
+        	<div class="span10">
+            	<h2>What...</h2>
+				<p>
+                	The Supplier Portal is where your customers can view and submit their <code>Invoices</code> and <code>other documents</code> to your company, so they can get processed by <code>eFLOW</code>.
+                </p>
+            </div>
+            
+            <br />
+            
+            <div class="span10">
+            	<h2>Who...</h2>
+				<p>
+                	Developed by Eduardo Freitas.
+                </p>
+                <p>
+                	The company behind the Supplier Portal is <a class="fg-color-blue" href="http://www.topimagesystems.com">Top Image Systems</a>.
+                </p>
+            </div>
+            
+            <br />
+            
+            <div class="span10">
+            	<h2>Contact us...</h2>
+				<p>
+                	Queries? Suggestions? Want access? Then please email us:
+                </p>
+                <p>
+                	<a href="http://safemail.justlikeed.net/" target="_blank"><img src="http://safemail.justlikeed.net/e/c7272f8599ebf1e02930658d95ba30ce.png" border="0" align="absbottom" title="Email image created with safemail.justlikeed.net"></a>
+                </p>
+            </div>
+            
+            <br />
+            
+            <div class="span10">
+            	<h2>Technology...</h2>
+            	<p>
+                	Works with <code>eFLOW</code> and <code>eFLOW Invoices</code>.
+                </p>
+				<p>
+                	Developed with open source and proprietary technology:
+                </p>
+                <br />
+                <p>
+                	<a class="fg-color-blue" href="http://www.doksend.com/eFlowSdks"> - eFLOW SDK's</a> - Easy to use and powerful SDKs that extend <a class="fg-color-blue" href="http://www.topimagesystems.com/solutions/overview/eflow-overview">eFLOW</a> beyond imagination. 
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://www.nodejs.org"> - Node</a> - Platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://expressjs.com/"> - Express</a> - Sinatra inspired web development framework for node.js.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://jquery.com/"> - jQuery</a> - Fast and concise JavaScript Library that simplifies HTML development.
+                </p>
+                <p>
+                	<a class="fg-color-blue" href="http://www.microsoft.com/net"> - .NET Framework</a> - Integral part of many applications running on Windows and provides common functionality for those applications to run. 
+                </p>
+            </div>
+		</div>
+	</div>			
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+
+<script src="js/director.min.js"></script>
+<script src="js/jquery.cookie.min.js"></script>
+<script src="js/jquery.reject.min.js"></script>
+<script src="js/jQuery.browser.mobile.js"></script>
+<script src="js/jquery.timer.min.js"></script>
+
+<script src="js/modern/dropdown.min.js"></script>
+<script src="js/easyXDM.min.js"></script>
+<script src="js/jquery.simplemodal.js"></script>
+<script src="js/osx.min.js"></script>
+
+<script src="js/dropzone.min.js"></script>
+
+<script src="js/supplierportal.js"></script>
+
+</body>
+</html>

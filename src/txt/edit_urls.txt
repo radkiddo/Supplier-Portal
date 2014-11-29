@@ -1,0 +1,74 @@
+Edit URLs on:
+(Most important ones are mentioned with ****)
+
+admins.json
+
+approved.json
+
+domains.json 
+**** Important Note("registeredDataDomain":"http://supplierportal.aws.af.cm" // Should be empty for Production)
+
+
+// webpages.js -->
+
+- exports.adminforusers = function(req, res) {
+	var options = {
+  		host: 'www.doksend.com',
+  		path: '/supplierportal/admins.json'
+	};
+	
+- exports.alist = function(req, res) {
+	exports.gjson(req, res, 'www.doksend.com', '/supplierportal/approved.json');
+};
+
+
+// model.js -->
+
+- var server  = emailserver.server.connect({
+   user: "supplierportal@doksend.com", 
+   password: "Sausage5!", 
+   host: "smtp.gmail.com", 
+   ssl: true
+});
+
+**** - var baseEmailUrl = '<a href="http://supplierportal.aws.af.cm'; // (change to web instance)
+
+- db = mongoose.createConnection('localhost', pDb); // local node
+    	//db = mongoose.createConnection(application.env['mongodb-1.8'][0]['credentials']['hostname'], pDb); // AppFog
+    	
+    	
+// validations.js or validations.min.js (used by validations.php)
+
+runValidations = function () {
+		var socket = new easyXDM.Socket({
+    		onMessage: function(message, origin){
+    			if (message !== undefined && message.indexOf("|") >= 0) {
+    				var dmn = 'http://www.doksend.com/supplierportal/validations/',
+    					vars = message.split('|'),
+    					fieldId = vars[0],
+    					fieldValue = vars[1],
+    					app = vars[2],
+    					domain = vars[3];
+    					
+					includes(dmn + app + '.js');
+					
+					runFieldValidation(app, domain, fieldId, fieldValue);
+    			}
+    		}
+		});
+	};
+
+
+// upload.php -->
+
+- $storeFolder = 'images_receive';
+
+- $finalPath = '/images_receive/';
+	
+	$ftp_server = "russell.dreamhost.com";
+    $ftp_user_name = "supplierportaluser";
+    $ftp_user_pass = "e7low5!!";
+    
+
+
+

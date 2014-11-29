@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+
+  Instructions:
+
+  - Save this file.
+  - Replace "USER" with your GitHub username.
+  - Replace "REPO" with your GitHub repo name.
+  - Replace "Your Project" with your project name.
+  - Upload this file (or commit to GitHub Pages).
+
+  Customize as you see fit!
+
+-->
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.doksend.com/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+
+  <title>Supplier Portal DevNet</title>
+
+  <!-- Flatdoc -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script src='rico/legacy.js'></script>
+  <script src='rico/flatdoc.js'></script>
+
+  <script src='rico/script.js'></script>
+  <!-- <script src='script.js'></script>-->
+
+  <!-- Flatdoc theme -->
+  <link  href='rico/style.css' rel='stylesheet'>
+
+  <!-- Meta -->
+  <meta content="Supplier Portal DevNet" property="og:title">
+  <meta content="Supplier Portal Developer Network." name="description">
+
+  <!-- Initializer -->
+  <script>
+    Flatdoc.run({
+      fetcher: Flatdoc.file('supplier_portal.md')
+    });
+  </script>
+</head>
+<body role='flatdoc' class='no-literate'>
+
+  <div class='header'>
+    <div class='left'>
+      <h1>Supplier Portal DevNet</h1>
+      <ul>
+        <li><a target="_blank" href='http://supplierportal.aws.af.cm/'>Supplier Portal Site</a></li>
+        <li><a target="_blank" href='http://www.doksend.com/eFlowSdks/'>eFlow SDK's</a></li>
+      </ul>
+    </div>
+    <div class='right'>
+      <!-- GitHub buttons: see http://ghbtns.com 
+      <iframe src="http://ghbtns.com/github-btn.html?user=USER&amp;repo=REPO&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe> -->
+    </div>
+  </div>
+
+  <div class='content-root'>
+    <div class='menubar'>
+      <div class='menu section' role='flatdoc-menu'></div>
+    </div>
+    <div role='flatdoc-content' class='content'></div>
+  </div>
+
+  <script type="text/javascript">
+
+    $(document).on('flatdoc:ready', function() {
+
+      $('a').on('click', function(e) {
+        var href = this.href;
+        
+        if (href.indexOf('spdoc') < 0) {
+          $('a').attr('target','_blank');
+        }
+        else {
+          $('.menu a').anchorjump();
+          $('a').attr('target','_self');
+        }
+      });
+  });
+  </script>
+
+</body>
+</html>

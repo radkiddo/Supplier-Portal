@@ -1,0 +1,65 @@
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/topimagesystems.com_IRSupplierPortal__SupplierData
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/doksend.com_IRSupplierPortal__POs
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/doksend.com_IRSupplierPortal__SupplierIdsPerUser
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/topimagesystems.com_IRSupplierPortal__SupplierIdsPerUser
+
+
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"customer":"dummy","eFlowAppName":"IR"}' http://localhost:3000/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cdt/p
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"customer":"dummy","eFlowAppName":"IR"}' http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cdt/p
+
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"tName":"dummy_IR","collectionName":"00001", "domainUsers": "speedy|imscan", "strData" : "invoice_total=30|vat=3"}' http://localhost:3000/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cd/p
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"tName":"dummy_IR","collectionName":"00001", "domainUsers": "speedy|imscan", "strData" : "invoice_total=30|vat=3"}' http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cd/p
+
+
+find post...
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"tName":"dummy_sd", "fn":cln", "fv":"c46"}' http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cd/p/query
+
+
+http://localhost:3000/k4e2552DtKgXLG4LIjyj4345435/radkiddo/eafa/sp/efl/timgsys/api/query/sp/tbls/tName/dummy_IR
+
+http://localhost:3000/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/dummy_IR
+
+http://localhost:3000/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/tbls
+
+
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/users
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/tbls
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/dummy_IR
+
+
+IR specific tables:
+
+__SupplierData
+__POs
+__SupplierIdsPerUser
+
+
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/AcmeCorp_AdvancedDemo
+
+http://supplierportal.aws.af.cm/k4e2552DtKgXLG4LIjyj4345435/radkiddo/eafa/sp/efl/timgsys/api/query/sp/AcmeCorp_AdvancedDemo/cln/c_00000002
+
+
+Delete:
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X DELETE -d '{"db": "sp", "table": "tbls", "fields": {"tName": "dummy_IR"}}' http://supplierportal.aws.af.cm/k4e2DtKgXLG445435yj4345435/radkiddo/eafa/sp/efl/timgsys/api/row
+
+
+newest:
+
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/tbls
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/speedyservices.com_CLS
+http://supplierportal.aws.af.cm/k4e2552DtKgXLG4LIjyj4345435/radkiddo/eafa/sp/efl/timgsys/api/query/sp/speedyservices.com_CLS/cln/c_00000323
+http://supplierportal.aws.af.cm/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/sp/topimagesystems.com_CLS
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"tName":"speedyservices.com_CLS","cid":"c_00000323","strData": "TEST1|SYSTEM|CLS|00000323|FreeProcess|1|Invoice_Date=|Invoice_Number=|Net_Amount1=|PO_Number=963645|Supplier_Name=|Total_Amount=0.00|VAT_Amount1=|VAT1=|speedyservices.com_CLS-00000323.tif","cln": "c_00000323"}' http://localhost:3000/k4e2550htyjrtyj4345435/radkiddo/eafa/sp/efl/timgsys/api/cd/p
